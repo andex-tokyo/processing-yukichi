@@ -16,7 +16,6 @@ PImage jun;
 PImage nyanko;
 int NUM =20;
 int deg =0;
-int t = 0;
 int ms;
 float locationX = 800;
 float x = 0;
@@ -66,7 +65,7 @@ void draw() {
         popMatrix();
         imageMode(CORNER);
       }
-    } else if (ms >1150 && ms < 1294) {
+    } else if (ms >1130 && ms < 1294) {
       for (int i=0; i<faces.length; i++) {
         deg= deg +10;
         pushMatrix();
@@ -111,7 +110,7 @@ void draw() {
         image(man, location[m].x, location[m].y);
         location[m].add(velocity[m]);
       }
-    } else if ( ms > 305 && ms < 381 || ms > 772 && ms < 845) {
+    } else if ( ms > 310 && ms < 381 || ms > 772 && ms < 845) {
       for (int m = 0; m < 100; m++) { 
         if (location[m] == null||location[m].y > 400) {
           location[m] = new PVector(random(width), 0);
@@ -125,6 +124,17 @@ void draw() {
     } else if (ms > 1050 && ms < 1171) {
       image(bman, locationX, 0);
       locationX = locationX -20;
+    }else if (ms > 465 && ms < 500) {
+      for (int m = 0; m < NUM; m++) { 
+        if (location[m] == null||location[m].y > 30) {
+          location[m] = new PVector(random(width), 0);
+          velocity[m] = new PVector(0, random(5, 20));
+        }
+      }
+      for (int m = 0; m < NUM; m++) {
+        image(man, location[m].x, location[m].y);
+        location[m].add(velocity[m]);
+      }
     }
   }
 }
